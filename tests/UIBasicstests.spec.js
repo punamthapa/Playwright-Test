@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('test for incorrect username and password', async ({  page}) => {
+test('ui Controls test', async ({  page}) => {
     const userName= page.locator("#username");
     const password= page.locator("#password");
     const loginButton = page.locator("#signInBtn");
@@ -28,6 +28,26 @@ test('test for incorrect username and password', async ({  page}) => {
     const allTitles = await cardTitles.allTextContents();
    
   console.log(allTitles);
+    
+  });
+
+  test('test for incorrect username and password', async ({  page}) => {
+    const userName= page.locator("#username");
+    const password= page.locator("#password");
+    const loginButton = page.locator("#signInBtn");
+    const radioButton = page.locator(".checkmark")
+    const dropDown = page.locator("select.form-control")
+
+    
+    await page.goto("https://rahulshettyacademy.com/loginpagePractise/");
+    await userName.fill("rahulshettyacademy");
+    await password.fill("learning");
+    await radioButton.last().click();
+    await page.locator("#okayBtn").click();
+    await dropDown.selectOption("Teacher");
+    await page.pause()
+    await loginButton.click();
+    
     
   });
   
