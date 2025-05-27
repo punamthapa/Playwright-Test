@@ -31,7 +31,7 @@ test('ui Controls test', async ({  page}) => {
     
   });
 
-  test('test for incorrect username and password', async ({  page}) => {
+  test('assertions for radioButtons', async ({  page}) => {
     const userName= page.locator("#username");
     const password= page.locator("#password");
     const loginButton = page.locator("#signInBtn");
@@ -44,9 +44,12 @@ test('ui Controls test', async ({  page}) => {
     await password.fill("learning");
     await radioButton.last().click();
     await page.locator("#okayBtn").click();
+       expect(radioButton.last()).toBeChecked();
     await dropDown.selectOption("Teacher");
-    await page.pause()
+
     await loginButton.click();
+
+   
     
     
   });
