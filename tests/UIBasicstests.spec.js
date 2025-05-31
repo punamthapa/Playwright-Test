@@ -44,7 +44,7 @@ test('ui Controls test', async ({  page}) => {
     await password.fill("learning");
     await radioButton.last().click();
     await page.locator("#okayBtn").click();
-       expect(radioButton.last()).toBeChecked();
+    expect(radioButton.last()).toBeChecked();
     await dropDown.selectOption("Teacher");
     await page.locator("#terms").click();
     await expect (page.locator("#terms")).toBeChecked();
